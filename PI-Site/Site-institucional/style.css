@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.cabeca{
+background-color: black;
+border: rgb(255, 211, 100) 2px solid;
+height: 100px;
+}
+
+.container{
+width: 80%;
+height: 100%;
+margin: auto;
+}
+
+.cabeca .container{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.navbar{
+display: flex;
+list-style: none;
+width: 39%;
+justify-content: space-between;
+}
+
+.cabeca h1{
+color: gold
+}
+
+.navbar li{
+color: rgb(255, 211, 100);
+
+}
+
+.navbar .ativo{
+font-weight: bolder;
+}
+
+.navbar li a{
+text-decoration: none;
+color:rgb(255, 211, 100) ;
+}
