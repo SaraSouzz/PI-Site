@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Análise de sálarios</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <h1>Análise <span class="highlight">de </span> sálarios</h1>
+    </div>
+  </div>
+
+        <div class="grafic">
+    <!-- Gráfico de Linhas -->
+    <div class="graph">
+      <canvas id="chartLine" style="width: 100%; height: 100%;"></canvas>
+    </div>
+
+    <!-- Gráfico de Barras -->
+    <div class="graph">
+      <canvas id="chartBar" style="width: 100%; height: 100%;"></canvas>
+    </div>
+
+    <!-- Grafico Pizza/Torta -->
+    <div class="graph">
+      <canvas id="chartPie" style="width: 100%; height: 100%;"></canvas>
+    </div>
+  </div>
+        </div>
+</body>
+
+
+<script>
+ 
+  
+  var ctxLine = document.getElementById("chartLine").getContext("2d");
+  var rotulosLine = ["2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021"];
+  var dataLine = [540, 662, 678, 724, 788, 880, 937, 954, 998, 1045, 1100];
+  var configLine = {
+    type: 'line',
+    data: {
+      labels: rotulosLine, 
+      datasets: [
+        {
+          label: 'Sálario Anual',
+          data: dataLine, 
+          backgroundColor: [
+            '#F2E205',
+            '#F2CC0C',
+            '#D9A407',
+            '#BF7E04',
+            '#A63F03',
+            '#F2D852',
+            '#F2CA52',
+            '#D9BA5F',
+          ],
+        
+          borderWidth: 0.1
+        }
+      ]
+    },
+    options: { 
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+        }
+      }
+    }
+  }
+  var ax_chartLine = new Chart(ctxLine, configLine); 
+
+
+  
+  var ctxBar = document.getElementById("chartBar").getContext("2d");
+  var rotulosBar = ["Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste"];
+  var dataBar = [1711, 1539, 2585, 2499, 2498];
+  var configBar = {
+    type: 'bar',
+    data: {
+      labels: rotulosBar, 
+      datasets: [
+        {
+          label: 'Sálario médio por região',
+          data: dataBar, 
+          backgroundColor: [
+            '#038C3E',
+            '#01402E',
+            '#02733E',
+            '#04BF55',
+            '#038C3E',
+            '#99990022',
+            '#F0F00022',
+            '#65002222',
+          ],
+
+          borderWidth: 0.1
+        }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+        }
+      }
+    }
+  }
+  var ax_chartBar = new Chart(ctxBar, configBar);
+  
+  var ctxPie = document.getElementById("chartPie").getContext("2d");
+  var rotulosPie = ["Brasil(total %)", "Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste"];
+  var dataPie = [11, 10.6, 13.6, 11.4, 6.8, 9.3];
+  var configPie = {
+    type: 'pie',
+    data: {
+      labels: rotulosPie,
+      datasets: [
+        {
+          label: 'Desemprego por região(%) ',
+          data: dataPie, 
+          backgroundColor: [
+            '#1F3D28',
+            '#397049',
+            '#60BD7A',
+            '#60BD7A',
+            '#99BDA3',
+            '#698270',
+          ],
+        
+          borderWidth: 0.1
+        }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+        }
+      }
+    }
+  }
+  var ax_chartPie = new Chart(ctxPie, configPie); 
+
+
+</script>
+</html>
